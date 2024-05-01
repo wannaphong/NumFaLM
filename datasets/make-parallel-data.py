@@ -32,24 +32,7 @@ for i in scb_dataset:
     n+=1
 del scb_dataset
 
-# dataset = load_dataset("pythainlp/scb-mt-en-th-2020_mt-opus",split="train")
-# n=0
-# for en,th in zip(dataset["en"],dataset["th"]):
-#     if n%2==0:
-#         l1=en
-#         l2=th
-#     else:
-#         l1=th
-#         l2=en
-#     if l1==None or l2==None:
-#         continue
-#     if len(l1)<3 or len(l2)<3:
-#         continue
-#     if "TRANS".lower() in th.lower() or "สหชาติ อนุกูลกิจ" in th:
-#         continue
-#     list_text.append(template.format(l1=l1,l2=l2))
-#     n+=1
-# del dataset
+
 dataset = load_dataset("bible_para", lang1="en", lang2="th",split="train")["translation"]
 n=0
 for i in dataset:
@@ -90,23 +73,6 @@ for i in dataset:
     n+=1
 del dataset
 
-# dataset = load_dataset("pythainlp/thai_usembassy",split="train")
-# n=0
-# for en,th in zip(dataset["en"],dataset["th"]):
-#     if n%2==0:
-#         l1=en
-#         l2=th
-#     else:
-#         l1=th
-#         l2=en
-#     if l1==None or l2==None:
-#         continue
-#     if len(l1)<3 or len(l2)<3:
-#         continue
-#     list_text.append(template.format(l1=l1,l2=l2))
-#     n+=1
-# del dataset
-
 dataset = load_dataset("ayymen/Pontoon-Translations","en-th",split="train")
 n=0
 for en,th in zip(dataset["source_string"],dataset["target_string"]):
@@ -124,7 +90,7 @@ for en,th in zip(dataset["source_string"],dataset["target_string"]):
     n+=1
 del dataset
 
-dataset = pd.read_csv("lab-data/talpco-en-th.csv")["translation"]
+dataset = pd.read_csv("talpco-en-th.csv")["translation"]
 n=0
 for i in dataset:
     if not isinstance(i,dict):

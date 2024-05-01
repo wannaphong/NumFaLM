@@ -40,12 +40,12 @@ thai_list.extend(load_dataset("pythainlp/thai_usembassy",split="train")["th"])
 thai_list.extend(load_dataset("pythainlp/inquiringmind-website",split="train")["text"])
 # thai_list.extend(list(pd.read_csv("./lab-data/ratchagitja-clean2.csv")["text"]))
 thai_list.extend(load_dataset("pythainlp/thai-open-data-text-v1",split="train")["text"])
-_temp=pd.read_csv("-news-30032024.csv")
+_temp=pd.read_csv("news-30032024.csv")
 thai_list.extend([i+"\n"+j for i,j in zip(_temp["title"],_temp["article"])])
 del _temp
 thai_list.extend(load_dataset("pythainlp/thaigov-corpus",split="train")["raw"])
 thai_list.extend(load_dataset("pythainlp/thaigov-v2-corpus-31032024",split="train")["raw"])
-_temp=pd.read_csv("-news-01042024.csv")
+_temp=pd.read_csv("news-01042024.csv")
 thai_list.extend([i+"\n"+j for i,j in zip(_temp["title"],_temp["article"])])
 del _temp
 thai_list=[i for i in thai_list if isinstance(i,str)]
